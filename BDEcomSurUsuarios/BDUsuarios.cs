@@ -7,7 +7,7 @@ namespace BDEcomSurUsuarios
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int fiId { get; set; }
+     
         public int fiUsuarioId { get; set; }
         public string? fcNombre { get; set; }
         public string? fcAmaterno { get; set; }

@@ -40,7 +40,8 @@ namespace BDEcomSurUsuarios.Migrations
                 name: "BDRolesPermisos",
                 columns: table => new
                 {
-                    fiId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    fiId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     fiIdRol = table.Column<int>(type: "int", nullable: false),
                     fiIdPermiso = table.Column<int>(type: "int", nullable: false)
                 },
@@ -65,9 +66,8 @@ namespace BDEcomSurUsuarios.Migrations
                 name: "BDUsuarios",
                 columns: table => new
                 {
-                    fiId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    fiUsuarioId = table.Column<int>(type: "int", nullable: false),
+                    fiUsuarioId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),                  
                     fcNombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     fcAmaterno = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     fcApaterno = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -81,7 +81,7 @@ namespace BDEcomSurUsuarios.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BDUsuarios", x => x.fiId);
+                    table.PrimaryKey("PK_BDUsuarios", x => x.fiUsuarioId);
                     table.ForeignKey(
                         name: "FK_BDUsuarios_BDRoles_fiIdRol",
                         column: x => x.fiIdRol,
